@@ -16,13 +16,22 @@ public class MaxTemperatureMapper extends
     String year = line.substring(15, 19);
     String temp = line.substring(87, 92);
     if (!missing(temp)) {
-      int airTemperature = Integer.parseInt(temp);
+
+      String normalizedTemp = normalize(temp);
+      int airTemperature = Integer.parseInt(normalizedTemp);
       context.write(new Text(year), new IntWritable(airTemperature));
     }
   }
 
   private boolean missing(String temp) {
     return temp.equals("+9999");
+  }
+
+  private String normalize(String temp) {
+    if (temp.substring(0, 1).equals("+")) {
+      return temp.substring(1);
+    }
+    return temp;
   }
 
 }
