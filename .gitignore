@@ -2,3 +2,6 @@
 target/
 output
 *.jar
+.idea/
+build/
+.settings/

@@ -2,12 +2,12 @@
 <configuration>
 
   <property>
-    <name>fs.default.name</name>
+    <name>fs.defaultFS</name>
     <value>hdfs://localhost/</value>
   </property>
   
   <property>
-    <name>mapred.job.tracker</name>
+    <name>mapred.jobtracker.address</name>
     <value>localhost:8021</value>
   </property>
   
